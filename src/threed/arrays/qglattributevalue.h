@@ -47,6 +47,11 @@
 
 QT_BEGIN_NAMESPACE
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable: 4312) // reinterpret_cast: conversion to greater size
+#endif
+
 class QGLVertexBundle;
 
 class Q_QT3D_EXPORT QGLAttributeValue
@@ -195,6 +200,10 @@ inline int QGLAttributeValue::count() const
 {
     return m_count;
 }
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 QT_END_NAMESPACE
 
